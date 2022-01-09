@@ -1,53 +1,41 @@
-import sympy
-from sympy import *
+#Make BQM and make it quadratic
+#Get embedding on graph
 
-x, y, z, l, m = symbols("x y z l m")
+#Get embedding on machine
+#Run problem in actual solver
 
-x = 2*x*y
+import dimod
+import minorminer
+import dwave_networkx as dnx
+from dwave.system import DWaveSampler
 
-print(type(x))
-for i in x.args:
-    print(type(i))
-    i.subs(i,1)
-print(expand(x))
+problem = {('c1', 'c2'): 68, ('c1', 'c3'): -8, ('c1', 'c4'): -16, ('c1', 'p1', 'q1'): -16, ('c1', 'p1', 'q2'): 2, ('c1', 'p1'): -4, ('c1', 'p2', 'q1'): 2, ('c1', 'p2', 'q2'): 4, ('c1', 'p2'): -16, ('c1', 'q1'): -4, ('c1', 'q2'): -16, ('c1',): 43, ('c2', 'c3'): -16, ('c2', 'c4'): -32, ('c2', 'p1', 'q1'): -32, ('c2', 'p1', 'q2'): 4, ('c2', 'p1'): -8, ('c2', 'p2', 'q1'): 4, ('c2', 'p2', 'q2'): 8, ('c2', 'p2'): -32, ('c2', 'q1'): -8, ('c2', 'q2'): -32, ('c2',): 120, ('c3', 'c4'): 68, ('c3', 'p1', 'q2'): -8, ('c3', 'p1'): -16, ('c3', 'p2', 'q1'): -8, ('c3', 'p2', 'q2'): -16, ('c3', 'p2'): 2, ('c3', 'q1'): -16, ('c3', 'q2'): 2, ('c3',): 5, ('c4', 'p1', 'q2'): -16, ('c4', 'p1'): -32, ('c4', 'p2', 'q1'): -16, ('c4', 'p2', 'q2'): -32, ('c4', 'p2'): 4, ('c4', 'q1'): -32, ('c4', 'q2'): 4, ('c4',): 44, ('p1', 'p2', 'q1', 'q2'): 2, ('p1', 'p2', 'q1'): 12, ('p1', 'p2', 'q2'): 12, ('p1', 'p2'): 4, ('p1', 'q1', 'q2'): 12, ('p1', 'q1'): 10, ('p1', 'q2'): 11, ('p1',): 3, ('p2', 'q1', 'q2'): 12, ('p2', 'q1'): 11, ('p2', 'q2'): 18, ('p2',): -11, ('q1', 'q2'): 4, ('q1',): 3, ('q2',): -11}
 
-def find(expr):
-    for i in expr.args:
-        if type(i) is sympy.core.mul.Mul:
-            print(i)
+quadraticProblem = dimod.make_quadratic(problem, 5, dimod.BINARY)
 
 
-    
+#qpu_2000q = DWaveSampler(solver={"topology__type": "chimera"})
+#network = qpu_2000q.to_networkx_graph()
+
+#qpu_advantage = DWaveSampler(solver={"topology__type": "pegasus"})
+#network = qpu_advantage.to_networkx_graph()
+
+network = dnx.chimera_graph(m=16,n=16,t=4)
 
 
-p1, p2, q1, q2, c1, c2, c3, c4 = symbols("p1 p2 q1 q2 c1 c2 c3 c4")
+embedding = minorminer.find_embedding(quadraticProblem.quadratic, network)
 
 
-n7, n6, n5, n4, n3, n2, n1, n0 = [1,0,0,0,1,1,1,1]
+print(embedding)
 
-o1 = ((p1 + q1) + 2*(p2 + p1*q1 + q2) - (8*c2 + 4*c1) - (n1 + 2*n2))**2
-o2 = ((1 + p2*q1 + p1*q2 + 1 + c1) + 2*(q1 + p2*q2 + p1 + c2) - (8*c4 + 4*c3) - (n3 + 2*n4))**2
-o3 = ((q2 + p2 + c3) + 2*(1 + c4) - (n5 + 2*n6 + 4*n7))**2
+logicalVariables = 0
+for x in quadraticProblem.iter_variables():
+    logicalVariables += 1
 
-o = o1 + o2 + o3
-o = expand(o)
-print(expand(o))
+physicalVariables = 0
+for x in embedding:
+    physicalVariables += len(embedding[x])
+
 print("")
-
-
-o = o.subs(p1**2, p1)
-o = o.subs(p2**2, p2)
-o = o.subs(q1**2, q1)
-o = o.subs(q2**2, q2)
-
-o = o.subs(c1**2, c1)
-o = o.subs(c2**2, c2)
-o = o.subs(c3**2, c3)
-o = o.subs(c4**2, c4)
-
-
-print(expand(o))
-print("")
-
-find(o)
-
+print("Logical variables: " + str(logicalVariables))
+print("Physical variables: " + str(physicalVariables))
