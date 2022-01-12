@@ -11,6 +11,7 @@ from dwave.system import DWaveSampler
 from dimod import ExactSolver
 from neal.sampler import SimulatedAnnealingSampler
 
+
 problemFile = open("problemDict.txt", "r")
 problem = eval(problemFile.read())
 problemFile.close()
@@ -27,7 +28,6 @@ quadraticProblem = dimod.make_quadratic(problem, 50000000, dimod.BINARY)
 network = dnx.chimera_graph(m=16, n=16, t=4)
 
 
-"""
 embedding = minorminer.find_embedding(quadraticProblem.quadratic, network)
 
 
@@ -41,11 +41,9 @@ for x in embedding:
 
 print("Logical variables: " + str(logicalVariables))
 print("Physical variables: " + str(physicalVariables))
+
+
 """
-
-# 659 = 1010010011
-# 571 = 1000111011
-
 quadraticProblem.fix_variable("q1",1)
 quadraticProblem.fix_variable("q2",0)
 quadraticProblem.fix_variable("q3",0)
@@ -63,15 +61,15 @@ quadraticProblem.fix_variable("p5",1)
 quadraticProblem.fix_variable("p6",0)
 quadraticProblem.fix_variable("p7",0)
 quadraticProblem.fix_variable("p8",0)
+"""
 
 #solver = ExactSolver()
 solver = SimulatedAnnealingSampler()
-sampleset = solver.sample(quadraticProblem, num_reads = 300000).lowest()
+sampleset = solver.sample(quadraticProblem, num_reads = 10000).lowest()
 print(sampleset.record.energy)
 
 print("Samples: " + str(len(sampleset.samples())))
 for s in sampleset.samples():
-    break
     p = "1"
     q = "1"
 
