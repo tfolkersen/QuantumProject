@@ -15,7 +15,7 @@ problemFile = open("problemDict.txt", "r")
 problem = eval(problemFile.read())
 problemFile.close()
 
-quadraticProblem = dimod.make_quadratic(problem, 5000, dimod.BINARY)
+quadraticProblem = dimod.make_quadratic(problem, 50000, dimod.BINARY)
 
 
 #qpu_2000q = DWaveSampler(solver={"topology__type": "chimera"})
@@ -58,7 +58,7 @@ quadraticProblem.fix_variable("p5",1)
 
 #solver = ExactSolver()
 solver = SimulatedAnnealingSampler()
-sampleset = solver.sample(quadraticProblem, num_reads = 10000).lowest()
+sampleset = solver.sample(quadraticProblem, num_reads = 30000).lowest()
 print(sampleset.record.energy)
 
 print("Samples: " + str(len(sampleset.samples())))
