@@ -65,7 +65,7 @@ quadraticProblem.fix_variable("p8",0)
 
 #solver = ExactSolver()
 solver = SimulatedAnnealingSampler()
-sampleset = solver.sample(quadraticProblem, num_reads = 10000).lowest()
+sampleset = solver.sample(quadraticProblem, num_reads = 300000).lowest()
 print(sampleset.record.energy)
 
 print("Samples: " + str(len(sampleset.samples())))
@@ -95,11 +95,8 @@ for s in sampleset.samples():
 
         i += 1
 
-    p = "1" + p
-    q = "1" + q
-
-
-
+    #p = "1" + p
+    #q = "1" + q
 
     #p = "1" + str(s["p4"]) + str(s["p3"]) + str(s["p2"]) + str(s["p1"]) + "1"
     #q = "1" + str(s["q4"]) + str(s["q3"]) + str(s["q2"]) + str(s["q1"]) + "1"

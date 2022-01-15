@@ -15,10 +15,18 @@ csp = dbc.factories.multiplication_circuit(8)
 bqm = dbc.stitch(csp, min_classical_gap=0.1)
 
 
+
+
 number = "1110101001010101"
 
 for i in range(0, len(number)):
     bqm.fix_variable("p" + str(i), int(number[len(number) - 1 - i]))
+
+bqm.fix_variable("a0", 1)
+bqm.fix_variable("a7", 1)
+bqm.fix_variable("b0", 1)
+bqm.fix_variable("b7", 1)
+
 
 
 network = dnx.chimera_graph(m=16, n=16, t=4)
@@ -47,9 +55,9 @@ print(sampleset.record.energy)
 
 print("Samples: " + str(len(sampleset.samples())))
 for s in sampleset.samples():
-    a = ""
-    b = ""
-    i = 0
+    a = "1"
+    b = "1"
+    i = 1
     while True:
         aName = "a" + str(i)
         bName = "b" + str(i)
@@ -70,6 +78,9 @@ for s in sampleset.samples():
             break
 
         i += 1
+
+    a = "1" + a
+    b = "1" + b
 
     print(a + " " + b)
 
