@@ -20,7 +20,9 @@ problemFile = open("problemDict.txt", "r")
 problem = eval(problemFile.read())
 problemFile.close()
 
-quadraticProblem = dimod.make_quadratic(problem, 50000000, dimod.BINARY)
+500
+#500000000
+quadraticProblem = dimod.make_quadratic(problem, 500000000, dimod.BINARY)
 
 
 qpu_2000q = DWaveSampler(solver={"topology__type": "chimera"})
@@ -111,11 +113,11 @@ sampler = EmbeddingComposite(qpu_advantage)
 
 startTime = time.clock_gettime_ns(time.CLOCK_MONOTONIC)
 
-#sampleset = sampler.sample(quadraticProblem)
-#sampleset = solver.sample(quadraticProblem, num_reads = 10000)
+sampleset = sampler.sample(quadraticProblem, num_reads = 1000, annealing_time = 500)
+#sampleset = solver.sample(quadraticProblem, num_reads = 1000)
 
-sampleset = sampler_bqm.sample(quadraticProblem)
-print(sampleset.info)
+#sampleset = sampler_bqm.sample(quadraticProblem)
+#print(sampleset.info)
 
 
 endTime = time.clock_gettime_ns(time.CLOCK_MONOTONIC)

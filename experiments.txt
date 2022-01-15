@@ -4,3 +4,13 @@
 10-adv defaults
 
 hybrid
+
+
+
+3:09 14 bits 
+
+3:10 AM -- 8 bits -- 1 of 1822 -- 50 penalty
+3:11 AM -- 8 bits -- 1 of 2725 -- 500000000 penalty
+3:12 AM -- 8 bits -- 1 of 3060 -- 10 us anneal 500000000 penalty
+3:17 AM -- 8 bits -- 1 of 646 -- 500 us anneal 500000000 penalty
+
