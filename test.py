@@ -28,6 +28,7 @@ quadraticProblem = dimod.make_quadratic(problem, 50000000, dimod.BINARY)
 network = dnx.chimera_graph(m=16, n=16, t=4)
 
 
+"""
 embedding = minorminer.find_embedding(quadraticProblem.quadratic, network)
 
 
@@ -41,8 +42,12 @@ for x in embedding:
 
 print("Logical variables: " + str(logicalVariables))
 print("Physical variables: " + str(physicalVariables))
+"""
 
+# 659 = 1010010011
+# 571 = 1000111011
 
+#-123 energy
 """
 quadraticProblem.fix_variable("q1",1)
 quadraticProblem.fix_variable("q2",0)
@@ -52,6 +57,7 @@ quadraticProblem.fix_variable("q5",0)
 quadraticProblem.fix_variable("q6",0)
 quadraticProblem.fix_variable("q7",1)
 quadraticProblem.fix_variable("q8",0)
+quadraticProblem.fix_variable("q9",1)
 
 quadraticProblem.fix_variable("p1",1)
 quadraticProblem.fix_variable("p2",0)
@@ -61,11 +67,14 @@ quadraticProblem.fix_variable("p5",1)
 quadraticProblem.fix_variable("p6",0)
 quadraticProblem.fix_variable("p7",0)
 quadraticProblem.fix_variable("p8",0)
+quadraticProblem.fix_variable("p9",1)
 """
+
 
 #solver = ExactSolver()
 solver = SimulatedAnnealingSampler()
 sampleset = solver.sample(quadraticProblem, num_reads = 300000).lowest()
+
 print(sampleset.record.energy)
 
 print("Samples: " + str(len(sampleset.samples())))
