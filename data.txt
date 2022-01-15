@@ -1,25 +1,36 @@
 10,000 reads; 1 microsecond anneal
 
-
         BITS = 8, 143 = 13 * 11
-Logical size:
-Chimera size:
-Pegasus size:
+Logical size: 19 18 18 19 18 -- 18.4
+Chimera size: 85 79 86 82 79 -- 82.2
+Pegasus size: 37 39 39 42 37 -- 38.8
+Logical quadratic: 96 94 94 96 94 -- 94.8
 
-Simulator time:
-Simulator samples:
+Embedding time 2000Q: 0.54298721 0.42463317 0.277229652 0.32981542 1.018548666
+(0.5186428236)
+Embedding time Advantage: 0.700256952 0.489629114 0.655636112 0.64622592 0.636557277
+(0.6256610750000001)
+
+Simulator time: 5.84
+Simulator samples: 175
 
 2000Q time:
 2000Q samples:
 
-Advantage time:
-Advantage samples:
+Advantage time: 0.533887259
+Advantage samples: 4344 1
 
 
         BITS = 10, 391 = 23 * 17
-Logical size:
-Chimera size:
-Pegasus size:
+Logical size: 28 28 28 28 28 -- 28
+Chimera size: 193 183 176 176 174 -- 180.4
+Pegasus size: 80 82 77 73 77 -- 77.8
+Logical quadratic: 198 198 198 198 198 -- 198
+
+Embedding time 2000Q: 1.692891931 5.341582337 1.462804312 1.711634765 5.507837625
+(3.143350194)
+Embedding time Advantage: 1.857429961 2.820914983 2.586757657 2.241344604 2.677651339
+(2.4368197088000003)
 
 Simulator time:
 Simulator samples:
@@ -32,9 +43,15 @@ Advantage samples:
 
 
         BITS = 12, 3127 = 59 * 53
-Logical size:
-Chimera size:
-Pegasus size:
+Logical size: 42 42 42 42 42 -- 42
+Chimera size: 402 413 416 377 406 -- 402.8
+Pegasus size: 157 165 166 158 173 -- 163.8
+Logical quadratic: 383 383 383 383 383 -- 383
+
+Embedding time 2000Q: 10.387689564 12.537209165 6.302442448 17.196123287 3.082394114
+(9.9011717156)
+Embedding time Advantage: 6.561302838 13.393955324 9.712905518 7.523105143 4.206107285
+(8.2794752216)
 
 Simulator time:
 Simulator samples:
@@ -44,13 +61,18 @@ Simulator samples:
 
 Advantage time:
 Advantage samples:
-
 
 
         BITS = 14, 8881 = 107 * 83
-Logical size:
-Chimera size:
-Pegasus size:
+Logical size: 57 57 57 57 57 -- 57
+Chimera size: 697 670 720 741 712 -- 708.0
+Pegasus size: 269 262 300 270 285 -- 277.2
+Logical quadratic: 629 629 629 629 629 -- 629
+
+Embedding time 2000Q: 11.176035927 12.80245119 33.436482789 23.888324717 8.813152094
+18.023289343400002
+Embedding time Advantage: 8.721363801 14.294192707 23.009939179 14.456591233 20.377145806
+16.1718465452
 
 Simulator time:
 Simulator samples:
@@ -60,13 +82,19 @@ Simulator samples:
 
 Advantage time:
 Advantage samples:
-
 
 
         BITS = 16, 59989 = 251 * 239
-Logical size:
-Chimera size:
-Pegasus size:
+Logical size: 74 74 74 74 74 -- 74
+Chimera size: 1094 1290 1181 1112 1236 -- 1182.6
+Pegasus size: 429 443 487 512 454 -- 465.0
+Logical quadratic: 911 911 911 911 911 -- 911
+
+Embedding time 2000Q: 26.662052839 12.557722622 18.679952981 20.975606643 11.094036009
+17.9938742188
+Embedding time Advantage: 34.961617523 43.17273253 39.929007098 30.707039628 17.608519805
+33.275783316799995
+
 
 Simulator time:
 Simulator samples:
@@ -76,29 +104,25 @@ Simulator samples:
 
 Advantage time:
 Advantage samples:
-
-
-        BITS = 17, 103459 = 337 * 307
-Logical size:
-Chimera size:
-Pegasus size:
-
-Simulator time:
-Simulator samples:
-
-2000Q time:
-2000Q samples:
-
-Advantage time:
-Advantage samples:
-
 
 
 
         BITS = 18, 231037 = 499 * 463
-Logical size:
-Chimera size:
-Pegasus size:
+Logical size: 92 92 92 92 92 -- 92
+Chimera size: 0 0 1704 0 1792 -- 1748.0
+Pegasus size: 610 662 683 660 682 -- 659.4
+Logical quadratic: 1249 1249 1249 1249 1249 -- 1249
+
+
+FOUND () NOT FOUND ()
+
+
+Embedding time 2000Q: 94.185654965 185.277406933 233.050159735 34.030645905 156.553491151
+140.61947173779998
+
+Embedding time Advantage: 39.902014403 55.666057552 48.076860008 65.896883277 63.88941934
+54.686246915999995
+
 
 Simulator time:
 Simulator samples:
@@ -108,12 +132,15 @@ Simulator samples:
 
 Advantage time:
 Advantage samples:
-
 
         BITS = 20, 376289 = 659 * 571
-Logical size:
-Chimera size:
-Pegasus size:
+Logical size: 114 114 114 114 114 -- 114
+Chimera size: 0 0 0 0 0 -- 0
+Pegasus size: 1054 1009 1077 1151 1069 -- 1072.0
+Logical quadratic: 1712 1712 1712 1712 1712 -- 1712
+
+Embedding time 2000Q:
+Embedding time Advantage:
 
 Simulator time:
 Simulator samples:
@@ -123,12 +150,3 @@ Simulator samples:
 
 Advantage time:
 Advantage samples:
-
-
-
-
-
-
-
-
-
