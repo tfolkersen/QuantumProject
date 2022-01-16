@@ -14,3 +14,28 @@ hybrid
 3:12 AM -- 8 bits -- 1 of 3060 -- 10 us anneal 500000000 penalty
 3:17 AM -- 8 bits -- 1 of 646 -- 500 us anneal 500000000 penalty
 
+
+==================
+using 20 us
+    Advantage:
+
+8 bit -- 6:08 AM
+1 of 2602
+0.226182489
+
+{'timing': {'qpu_sampling_time': 1058400.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 65.3, 'qpu_access_time': 1066848.2, 'qpu_access_overhead_time': 20474.8, 'qpu_programming_time': 8448.2, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 5044.0, 'total_post_processing_time': 11109.0}, 'problem_id': '1843aad5-d7a0-44e3-92eb-65cef8554e83'}
+
+
+
+
+10 bit -- 6:12 AM
+1 of 7834
+1.955373328
+{'timing': {'qpu_sampling_time': 1348000.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 94.26, 'qpu_access_time': 1356446.2, 'qpu_access_overhead_time': 17523.8, 'qpu_programming_time': 8446.2, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 4562.0, 'total_post_processing_time': 19665.0}, 'problem_id': '6398ab89-ed99-48f1-81be-d8991327b1ff'}
+
+
+
+16 bit -- 6:15 AM
+0 of 10000
+0 of 5000 - 50 us
+0 of 1250 - 500 us

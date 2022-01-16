@@ -22,29 +22,32 @@ problemFile.close()
 
 500
 #500000000
-quadraticProblem = dimod.make_quadratic(problem, 500000000, dimod.BINARY)
+
+#50,000
+quadraticProblem = dimod.make_quadratic(problem, 50000, dimod.BINARY)
+#500000000
 
 
-qpu_2000q = DWaveSampler(solver={"topology__type": "chimera"})
-net2000q = qpu_2000q.to_networkx_graph()
+print(type(quadraticProblem))
+
+#qpu_2000q = DWaveSampler(solver={"topology__type": "chimera"})
+#net2000q = qpu_2000q.to_networkx_graph()
 
 qpu_advantage = DWaveSampler(solver={"topology__type": "pegasus"})
-netAdvantage = qpu_advantage.to_networkx_graph()
+#netAdvantage = qpu_advantage.to_networkx_graph()
 
 
 
 
 
-from dwave.system import LeapHybridBQMSampler, LeapHybridCQMSampler
+#from dwave.system import LeapHybridBQMSampler, LeapHybridCQMSampler
 
 
 # Select a standard BQM solver
 
-bqm_solver_selection = LeapHybridBQMSampler.default_solver
-
-bqm_solver_selection.update(name__regex=".*(?<!bulk)$")
-
-sampler_bqm = LeapHybridBQMSampler(solver=bqm_solver_selection)  
+#bqm_solver_selection = LeapHybridBQMSampler.default_solver
+#bqm_solver_selection.update(name__regex=".*(?<!bulk)$")
+#sampler_bqm = LeapHybridBQMSampler(solver=bqm_solver_selection)  
 
 
 #et2000Start = time.clock_gettime_ns(time.CLOCK_MONOTONIC)
@@ -58,9 +61,9 @@ sampler_bqm = LeapHybridBQMSampler(solver=bqm_solver_selection)
 #embeddingTime2000 = et2000End - et2000Start
 #embeddingTimeA = etAEnd - etAstart
 
-#logicalVariables = 0
-#for x in quadraticProblem.iter_variables():
-#    logicalVariables += 1
+logicalVariables = 0
+for x in quadraticProblem.iter_variables():
+    logicalVariables += 1
 
 #logicalQuadratic = 0
 #for x in quadraticProblem.quadratic:
@@ -110,13 +113,14 @@ solver = SimulatedAnnealingSampler()
 
 sampler = EmbeddingComposite(qpu_advantage) 
 
+print("Logical variables: " + str(logicalVariables))
 
 startTime = time.clock_gettime_ns(time.CLOCK_MONOTONIC)
 
-sampleset = sampler.sample(quadraticProblem, num_reads = 1000, annealing_time = 500)
-#sampleset = solver.sample(quadraticProblem, num_reads = 1000)
+#sampleset = sampler.sample(quadraticProblem, num_reads = 10000, annealing_time = 50)
+sampleset = solver.sample(quadraticProblem, num_reads = 100000)
 
-#sampleset = sampler_bqm.sample(quadraticProblem)
+#sampleset = sampler_bqm.sample(quadraticProblem, num_reads=10000)
 #print(sampleset.info)
 
 

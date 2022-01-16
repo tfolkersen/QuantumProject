@@ -1,0 +1,90 @@
+8 bits -- 100,000 samples
+table: 18 variables, 1586 samples, 65.746947999
+circuit: 38, 10885 samples, 10866 samples 57.434735804
+
+10 bits
+table: 28 variables, 781 samples, 61.994666736
+circuit: 63 variables, 3305 samples, 81.54884406
+
+12 bits
+table: 42 variables, 265 samples, 123.917460056
+circuit: 94 variables, 537 samples, 152.665955823
+
+14 bits
+table: 57 variables, 47 samples, 181.529150659
+circuit: 131 variables, 47 samples, 198.66880182
+
+16 bits
+table: 74 variables, 45 samples, 247.607462952
+circuit: 174 variables, 8 samples, 280.881713866
+
+18 bits
+table: 92 variables, 5 samples, 302.73776329
+circuit: 223 variables, 1 sample, 345.24771806345.24771806
+============================================================
+50,000 penalty, 100,000 samples
+
+8 bits:
+table: 19 variables, 1637 samples, 75.040115198
+circuit: 38 variables, 10701 samples, 62.593000629
+
+10 bits:
+table: 28 variables, 776 samples, 104.196637048
+circuit: 63 variables, 3343 samples, 110.322057643
+
+12 bits:
+table: 42 variables, 233 samples, 164.156810791
+circuit: 94 variables, 542 samples, 166.703400277
+
+14 bits:
+table: 57 variables, 61 samples, 236.500902251
+circuit: 131 variables, 50 samples, 243.452862351
+
+16 bits:
+table: 74 variables, 22 samples, 326.862809004
+circuit: 174 variables, 4 samples, 317.594500531
+
+18 bits
+table: 92 variables, 6 samples, 398.226427443
+circuit: 223 variables, 2 samples, 401.908384832
+
+20 bits
+table: 114 variables
+circuit: 278 variables
+
+============================================================
+        8 bits
+5 penalty -- wrong
+50 penalty -- 3486
+500 penalty --  1730
+
+actual run
+6:20 PM, 50 penalty, 2 of 2155
+0.554552977
+
+6:22 PM, 50 penalty, 2 of 1873
+0.449823782
+{'timing': {'qpu_sampling_time': 1325200.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 91.98, 'qpu_access_time': 1333645.4, 'qpu_access_overhead_time': 17459.6, 'qpu_programming_time': 8445.4, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 3776.0, 'total_post_processing_time': 9783.0}, 'problem_id': '4a03227a-d624-4f30-af29-8c55c581b8e8'}
+
+        10 bits
+5 penalty -- wrong
+50 penalty -- wrong
+500 penalty 649 samples
+5000 penalty -- 747 samples
+50000 penalty -- 791 samples
+500000 penalty -- 740 samples
+
+6:37 PM, 50000 penalty, 2 of 7655
+2.575263244
+{'timing': {'qpu_sampling_time': 1346400.0, 'qpu_anneal_time_per_sample': 20.0, 'qpu_readout_time_per_sample': 94.1, 'qpu_access_time': 1354846.2, 'qpu_access_overhead_time': 20407.8, 'qpu_programming_time': 8446.2, 'qpu_delay_time_per_sample': 20.54, 'post_processing_overhead_time': 1352.0, 'total_post_processing_time': 18882.0}, 'problem_id': 'ceb1c56c-a44b-445c-ac80-100893bfa1b9'}
+
+12 bits
+5000 penalty -- 229 samples
+25000 penalty -- 281 samples
+50000 penalty -- 265 samples
+500000 penalty -- 257 samples
+
+14 bits
+500 penalty -- wrong
+5000 penalty -- 59 samples
+50000 penalty -- 43 samples
